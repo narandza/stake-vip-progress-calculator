@@ -1,4 +1,4 @@
-type VipTier = {
+export type VipTier = {
   name: string;
   requirement: number;
 };

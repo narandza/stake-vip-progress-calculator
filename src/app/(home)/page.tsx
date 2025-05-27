@@ -1,3 +1,5 @@
+import { VIP_TIERS } from "@/constants";
+import { CalculateProgressForm } from "@/modules/calculate-progress-form";
 import Image from "next/image";
 
 export default function Home() {
@@ -14,6 +16,8 @@ export default function Home() {
       <div className="mt-10 ">
         <h1 className="text-xl">Stake VIP Progress Calculator</h1>
       </div>
+
+      <CalculateProgressForm tiers={VIP_TIERS} />
     </div>
   );
 }
