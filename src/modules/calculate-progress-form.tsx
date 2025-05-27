@@ -1,4 +1,6 @@
-import { VipTier } from "@/constants";
+"use client";
+
+import { TierEnum, VipTier } from "@/vip-tiers";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -12,7 +14,7 @@ export const CalculateProgressForm = ({
 }: CalculateProgressFormProps) => {
   const formSchema = z.object({
     currentPercentage: z.number(),
-    tier: z.string(),
+    tier: TierEnum,
   });
 
   const form = useForm<z.infer<typeof formSchema>>({

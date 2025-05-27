@@ -1,4 +1,4 @@
-import { VIP_TIERS } from "@/constants";
+import { VIP_TIERS } from "@/vip-tiers";
 import { CalculateProgressForm } from "@/modules/calculate-progress-form";
 import Image from "next/image";
 
