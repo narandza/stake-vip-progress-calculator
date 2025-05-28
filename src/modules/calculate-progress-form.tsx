@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -41,7 +42,7 @@ export const CalculateProgressForm = ({
     resolver: zodResolver(formSchema),
     defaultValues: {
       currentPercentage: 0,
-      tier: "none",
+      tier: "None",
     },
   });
 
@@ -51,7 +52,10 @@ export const CalculateProgressForm = ({
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-10 flex flex-col mt-5 "
+      >
         <FormField
           control={form.control}
           name="currentPercentage"
@@ -77,9 +81,17 @@ export const CalculateProgressForm = ({
           render={({ field }) => (
             <FormItem>
               <FormLabel>Current VIP Tier:</FormLabel>
-              <FormControl>
-                <Select>
-                  <SelectTrigger>
+              <FormControl className="w-full ">
+                <Select
+                  value={field.value}
+                  onValueChange={field.onChange}
+                  name={field.name}
+                >
+                  <SelectTrigger
+                    onBlur={field.onBlur}
+                    ref={field.ref}
+                    className="w-full"
+                  >
                     <SelectValue placeholder="Select your current VIP rank" />
                   </SelectTrigger>
                   <SelectContent>
@@ -100,6 +112,10 @@ export const CalculateProgressForm = ({
             </FormItem>
           )}
         />
+
+        <Button type="submit" size="lg">
+          Calculate
+        </Button>
       </form>
     </Form>
   );
