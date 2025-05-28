@@ -28,11 +28,12 @@ import { useState } from "react";
 import { CopyIcon } from "lucide-react";
 import {
   Card,
-  CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { toast } from "sonner";
 
 interface CalculateProgressFormProps {
   tiers: VipTier[];
@@ -72,6 +73,12 @@ export const CalculateProgressForm = ({
     setWagerResult(result);
   };
 
+  const onCopy = () => {
+    navigator.clipboard.writeText(`I appreciate your patience.
+        To reach the next VIP rank, you would have to wager an additional $${wagerResult?.remainingToNextTier.toLocaleString()}.`);
+    toast.success("Text copied.");
+  };
+
   return (
     <div className="">
       <Form {...form}>
@@ -103,7 +110,7 @@ export const CalculateProgressForm = ({
             name="tier"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Current VIP Tier:</FormLabel>
+                <FormLabel>Current VIP Rank:</FormLabel>
                 <FormControl className="w-full ">
                   <Select
                     value={field.value}
@@ -136,7 +143,7 @@ export const CalculateProgressForm = ({
             )}
           />
 
-          <Button type="submit" size="lg">
+          <Button type="submit" size="lg" className="cursor-pointer">
             Calculate
           </Button>
         </form>
@@ -152,7 +159,11 @@ export const CalculateProgressForm = ({
               Remaining wager amount to next VIP rank
             </CardDescription>
           </CardHeader>
-          <CardContent></CardContent>
+          <CardFooter>
+            <Button className="w-full cursor-pointer" onClick={onCopy}>
+              Copy Message <CopyIcon />
+            </Button>
+          </CardFooter>
         </Card>
       )}
     </div>
