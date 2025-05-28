@@ -32,3 +32,6 @@ export const TIER_NAMES = VIP_TIERS.map((tier) => tier.name) as [
 export const TierEnum = z.enum(TIER_NAMES);
 
 export type TierName = z.infer<typeof TierEnum>;
+
+export const DEFAULT_LOGO_WIDTH = 128;
+export const DEFAULT_LOGO_HEIGHT = 128;

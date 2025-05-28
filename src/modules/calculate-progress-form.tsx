@@ -20,7 +20,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
-import { TierEnum, VipTier } from "@/vip-tiers";
+import { TierEnum, VipTier } from "@/constants";
 import { Button } from "@/components/ui/button";
 import { calculateProgress } from "@/lib/calculate";
 import { zodResolver } from "@hookform/resolvers/zod";

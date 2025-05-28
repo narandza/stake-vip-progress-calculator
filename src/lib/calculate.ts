@@ -1,4 +1,4 @@
-import { TierName, VIP_TIERS } from "@/vip-tiers";
+import { TierName, VIP_TIERS } from "@/constants";
 
 interface calculateProgressProps {
   percentage: number;

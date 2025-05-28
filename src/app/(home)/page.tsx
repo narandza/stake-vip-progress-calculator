@@ -1,4 +1,8 @@
-import { VIP_TIERS } from "@/vip-tiers";
+import {
+  DEFAULT_LOGO_HEIGHT,
+  DEFAULT_LOGO_WIDTH,
+  VIP_TIERS,
+} from "@/constants";
 import { CalculateProgressForm } from "@/modules/calculate-progress-form";
 import Image from "next/image";
 
@@ -8,8 +12,8 @@ export default function Home() {
       <Image
         src="/logo.svg"
         alt="Logo"
-        height={128}
-        width={128}
+        height={DEFAULT_LOGO_HEIGHT}
+        width={DEFAULT_LOGO_WIDTH}
         className="invert mt-6"
       />
 
