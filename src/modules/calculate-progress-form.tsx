@@ -26,6 +26,13 @@ import { calculateProgress } from "@/lib/calculate";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { CopyIcon } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 interface CalculateProgressFormProps {
   tiers: VipTier[];
@@ -136,14 +143,17 @@ export const CalculateProgressForm = ({
       </Form>
 
       {wagerResult && (
-        <div className="flex items-center justify-center gap-x-1  mt-10">
-          <Input
-            readOnly
-            className="cursor-default"
-            value={wagerResult.remainingToNextTier.toLocaleString()}
-          />
-          <CopyIcon className="size-5 cursor-pointer" />
-        </div>
+        <Card className="mt-10">
+          <CardHeader>
+            <CardTitle>
+              ${wagerResult.remainingToNextTier.toLocaleString()}
+            </CardTitle>
+            <CardDescription>
+              Remaining wager amount to next VIP rank
+            </CardDescription>
+          </CardHeader>
+          <CardContent></CardContent>
+        </Card>
       )}
     </div>
   );

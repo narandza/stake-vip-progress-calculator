@@ -84,8 +84,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: #0b0e0f;
-  color: #ffffff;
+  @apply bg-background text-foreground;
 }
 
 .dark {
