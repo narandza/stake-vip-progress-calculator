@@ -17,6 +17,7 @@ import {
   SelectItem,
   SelectTrigger,
 } from "@/components/ui/select";
+import { calculateProgress } from "@/lib/calculate";
 import { TierEnum, VipTier } from "@/vip-tiers";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SelectValue } from "@radix-ui/react-select";
@@ -47,7 +48,11 @@ export const CalculateProgressForm = ({
   });
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log(values);
+    const { currentPercentage, tier } = values;
+
+    console.log(
+      calculateProgress({ percentage: currentPercentage, tierName: tier })
+    );
   };
 
   return (

@@ -9,11 +9,17 @@ export const calculateProgress = ({
   percentage,
   tierName,
 }: calculateProgressProps) => {
-  const currentTierIndex = VIP_TIERS.findIndex(
-    (tier) => (tier.name = tierName)
+  const normalizedTierName = tierName.trim().toLowerCase();
+
+  const sortedTiers = [...VIP_TIERS].sort(
+    (a, b) => a.requirement - b.requirement
   );
 
-  if (currentTierIndex === -1 || currentTierIndex === VIP_TIERS.length - 1) {
+  const currentTierIndex = sortedTiers.findIndex(
+    (t) => t.name.toLowerCase() === normalizedTierName
+  );
+
+  if (currentTierIndex === -1 || currentTierIndex === sortedTiers.length - 1) {
     return null;
   }
 
