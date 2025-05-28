@@ -1,8 +1,18 @@
 "use client";
 
 import { z } from "zod";
+import { toast } from "sonner";
+import { useState } from "react";
+import { CopyIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
 
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import {
   Form,
   FormControl,
@@ -24,16 +34,12 @@ import { TierEnum, VipTier } from "@/constants";
 import { Button } from "@/components/ui/button";
 import { calculateProgress } from "@/lib/calculate";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
-import { CopyIcon } from "lucide-react";
 import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { toast } from "sonner";
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface CalculateProgressFormProps {
   tiers: VipTier[];
@@ -45,6 +51,7 @@ export const CalculateProgressForm = ({
   const [wagerResult, setWagerResult] = useState<ReturnType<
     typeof calculateProgress
   > | null>(null);
+  const [message, setMessage] = useState("");
 
   const formSchema = z.object({
     currentPercentage: z.coerce
@@ -57,7 +64,7 @@ export const CalculateProgressForm = ({
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      currentPercentage: 0,
+      currentPercentage: "",
       tier: "None",
     },
   });
@@ -70,13 +77,15 @@ export const CalculateProgressForm = ({
       tierName: tier,
     });
 
+    setMessage(`I appreciate your patience.
+        To reach the next VIP rank, you would have to wager an additional $${result?.remainingToNextTier.toLocaleString()}.`);
+
     setWagerResult(result);
   };
 
   const onCopy = () => {
-    navigator.clipboard.writeText(`I appreciate your patience.
-        To reach the next VIP rank, you would have to wager an additional $${wagerResult?.remainingToNextTier.toLocaleString()}.`);
-    toast.success("Text copied.");
+    navigator.clipboard.writeText(message);
+    toast.success("Message copied to clipboard.");
   };
 
   return (
@@ -94,6 +103,7 @@ export const CalculateProgressForm = ({
                 <FormLabel>Current VIP Progress Percentage:</FormLabel>
                 <FormControl>
                   <Input
+                    autoFocus
                     type="number"
                     placeholder="Enter current VIP progress percentage"
                     {...field}
@@ -160,9 +170,16 @@ export const CalculateProgressForm = ({
             </CardDescription>
           </CardHeader>
           <CardFooter>
-            <Button className="w-full cursor-pointer" onClick={onCopy}>
-              Copy Message <CopyIcon />
-            </Button>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button className="w-full cursor-pointer" onClick={onCopy}>
+                    Copy Message <CopyIcon />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>{message}</TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </CardFooter>
         </Card>
       )}
