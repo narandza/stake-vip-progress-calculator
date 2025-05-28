@@ -10,8 +10,15 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+} from "@/components/ui/select";
 import { TierEnum, VipTier } from "@/vip-tiers";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { SelectValue } from "@radix-ui/react-select";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -59,6 +66,36 @@ export const CalculateProgressForm = ({
                 />
               </FormControl>
               <FormDescription>Your current VIP progress</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="tier"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Current VIP Tier:</FormLabel>
+              <FormControl>
+                <Select>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select your current VIP rank" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {tiers.map((tier) => (
+                      <SelectItem
+                        key={tier.name}
+                        value={tier.name}
+                        className="capitalize"
+                      >
+                        {tier.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </FormControl>
+              <FormDescription>Your current VIP rank</FormDescription>
               <FormMessage />
             </FormItem>
           )}
