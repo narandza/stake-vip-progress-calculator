@@ -1,6 +1,8 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+
 import {
   Form,
   FormControl,
@@ -10,19 +12,18 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
+  SelectValue,
 } from "@/components/ui/select";
-import { calculateProgress } from "@/lib/calculate";
+import { Input } from "@/components/ui/input";
 import { TierEnum, VipTier } from "@/vip-tiers";
+import { Button } from "@/components/ui/button";
+import { calculateProgress } from "@/lib/calculate";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { SelectValue } from "@radix-ui/react-select";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
 
 interface CalculateProgressFormProps {
   tiers: VipTier[];
