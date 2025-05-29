@@ -183,7 +183,7 @@ export const CalculateProgressForm = ({
                     Copy Message <CopyIcon />
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent className="max-w-xs break-words">
+                <TooltipContent side="bottom" className="max-w-xs break-words">
                   {message}
                 </TooltipContent>
               </Tooltip>
