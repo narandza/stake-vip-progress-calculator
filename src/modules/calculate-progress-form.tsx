@@ -41,6 +41,14 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
+const formSchema = z.object({
+  currentPercentage: z.coerce
+    .number()
+    .min(0, { message: "The minimum amount is 0" })
+    .max(100, { message: "The maximum amount is 100" }),
+  tier: TierEnum,
+});
+
 interface CalculateProgressFormProps {
   tiers: VipTier[];
 }
@@ -52,14 +60,6 @@ export const CalculateProgressForm = ({
     typeof calculateProgress
   > | null>(null);
   const [message, setMessage] = useState("");
-
-  const formSchema = z.object({
-    currentPercentage: z.coerce
-      .number()
-      .min(0, { message: "The minimum amount is 0" })
-      .max(100, { message: "The maximum amount is 100" }),
-    tier: TierEnum,
-  });
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -79,7 +79,7 @@ export const CalculateProgressForm = ({
 
     if (!result) {
       toast.error("Something went wrong.");
-      return null;
+      return;
     }
 
     setMessage(
@@ -111,6 +111,7 @@ export const CalculateProgressForm = ({
                   <Input
                     autoFocus
                     type="number"
+                    step="any"
                     placeholder="Enter current VIP progress percentage"
                     {...field}
                   />
@@ -159,9 +160,19 @@ export const CalculateProgressForm = ({
             )}
           />
 
-          <Button type="submit" size="lg" className="cursor-pointer">
-            Calculate
-          </Button>
+          <div className="flex flex-col gap-2">
+            <Button
+              type="submit"
+              size="lg"
+              className="cursor-pointer"
+              disabled={form.formState.isSubmitting}
+            >
+              {form.formState.isSubmitting ? "Calculating..." : "Calculate"}
+            </Button>
+            <Button variant="outline" onClick={() => form.reset()}>
+              Reset
+            </Button>
+          </div>
         </form>
       </Form>
 
@@ -179,7 +190,10 @@ export const CalculateProgressForm = ({
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button className="w-full cursor-pointer" onClick={onCopy}>
+                  <Button
+                    className="max-w-xs whitespace-pre-wrap break-words"
+                    onClick={onCopy}
+                  >
                     Copy Message <CopyIcon />
                   </Button>
                 </TooltipTrigger>
