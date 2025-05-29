@@ -77,8 +77,14 @@ export const CalculateProgressForm = ({
       tierName: tier,
     });
 
-    setMessage(`I appreciate your patience.
-        To reach the next VIP rank, you would have to wager an additional $${result?.remainingToNextTier.toLocaleString()}.`);
+    if (!result) {
+      toast.error("Something went wrong.");
+      return null;
+    }
+
+    setMessage(
+      `Thank you for your patience.\n\nFrom what I can see you are ${currentPercentage}% towards your ${result.nextTier} VIP level, and you need to wager a total of $${result.nextTierRequirement} to get from ${tier} to ${result.nextTier} VIP, that means that you have to wager $${result.remainingToNextTier} more to get to the next VIP level.\nYou can see how to calculate that by yourself so that you can keep track of your progress:\nADD_ARTICLE\n\nLet us know if there is anything else that we can assist you with, we are here for you 24/7.Wish you a lovely day!​`
+    );
 
     setWagerResult(result);
   };
@@ -177,7 +183,9 @@ export const CalculateProgressForm = ({
                     Copy Message <CopyIcon />
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent>{message}</TooltipContent>
+                <TooltipContent className="max-w-xs break-words">
+                  {message}
+                </TooltipContent>
               </Tooltip>
             </TooltipProvider>
           </CardFooter>
