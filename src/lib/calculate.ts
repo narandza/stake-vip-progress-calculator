@@ -40,5 +40,6 @@ export const calculateProgress = ({
     wageredInCurrentTier: wageredInTier,
     remainingToNextTier,
     nextTierRequirement: nextTier.requirement,
+    tierGap,
   };
 };
