@@ -181,7 +181,7 @@ export const CalculateProgressForm = ({
       </Form>
 
       {wagerResult && (
-        <Card className="mt-10">
+        <Card className="mt-10 ">
           <CardHeader>
             <CardTitle>
               ${wagerResult.remainingToNextTier.toLocaleString()}
