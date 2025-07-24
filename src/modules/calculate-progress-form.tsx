@@ -3,7 +3,7 @@
 import { z } from "zod";
 import { toast } from "sonner";
 import { useState } from "react";
-import { CopyIcon } from "lucide-react";
+import { CopyCheckIcon, CopyIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
 
 import {
@@ -60,6 +60,7 @@ export const CalculateProgressForm = ({
     typeof calculateProgress
   > | null>(null);
   const [message, setMessage] = useState("");
+  const [isCopied, setIsCopied] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -70,6 +71,7 @@ export const CalculateProgressForm = ({
   });
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
+    setIsCopied(false);
     const { currentPercentage, tier } = values;
 
     const result = calculateProgress({
@@ -95,6 +97,7 @@ export const CalculateProgressForm = ({
 
   const onCopy = () => {
     navigator.clipboard.writeText(message);
+    setIsCopied(true);
     toast.success("Message copied to clipboard.");
   };
 
@@ -181,7 +184,7 @@ export const CalculateProgressForm = ({
       </Form>
 
       {wagerResult && (
-        <Card className="mt-10 ">
+        <Card className="mt-10 flex justify-center">
           <CardHeader>
             <CardTitle>
               ${wagerResult.remainingToNextTier.toLocaleString()}
@@ -198,7 +201,15 @@ export const CalculateProgressForm = ({
                     className="max-w-xs whitespace-pre-wrap break-words"
                     onClick={onCopy}
                   >
-                    Copy Message <CopyIcon />
+                    {isCopied ? (
+                      <>
+                        Copied <CopyCheckIcon />
+                      </>
+                    ) : (
+                      <>
+                        Copy Message <CopyIcon />
+                      </>
+                    )}
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent side="bottom" className="max-w-xs break-words">
