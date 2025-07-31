@@ -60,7 +60,7 @@ export const CalculateProgressForm = ({
     typeof calculateProgress
   > | null>(null);
   const [message, setMessage] = useState("");
-  const [isCopied, setIsCopied] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -71,7 +71,7 @@ export const CalculateProgressForm = ({
   });
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
-    setIsCopied(false);
+    setCopied(false);
     const { currentPercentage, tier } = values;
 
     const result = calculateProgress({
@@ -95,10 +95,11 @@ export const CalculateProgressForm = ({
     setWagerResult(result);
   };
 
-  const onCopy = () => {
+  const handleCopy = () => {
     navigator.clipboard.writeText(message);
-    setIsCopied(true);
+    setCopied(true);
     toast.success("Message copied to clipboard.");
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
@@ -199,9 +200,9 @@ export const CalculateProgressForm = ({
                 <TooltipTrigger asChild>
                   <Button
                     className="max-w-xs whitespace-pre-wrap break-words"
-                    onClick={onCopy}
+                    onClick={handleCopy}
                   >
-                    {isCopied ? (
+                    {copied ? (
                       <>
                         Copied <CopyCheckIcon />
                       </>
