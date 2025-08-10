@@ -40,6 +40,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { writeMessage } from "@/lib/utils";
 
 const formSchema = z.object({
   currentPercentage: z.coerce
@@ -85,11 +86,14 @@ export const CalculateProgressForm = ({
     }
 
     setMessage(
-      `Thank you for your patience.\n\nFrom what I can see you are ${currentPercentage}% towards your ${
-        result.nextTier
-      } VIP level, and you need to wager a total of $${result.tierGap.toLocaleString()} to get from ${tier} to ${
-        result.nextTier
-      } VIP, that means that you have to wager $${result.remainingToNextTier.toLocaleString()} more to get to the next VIP level.\n\nPlease keep in mind that sports bets count 3x more toward your wagering requirements.\n\nTo estimate how many sports bets you'd need to place to reach the next level, simply divide the required wagering amount by 3.\n\nIf you're placing a mix of sports and casino bets, the best way to track your total wagered amount is by checking your transaction history.\n\nYou can see how to calculate that by yourself so that you can keep track of your progress:\n\nADD_ARTICLE\n\nLet us know if there is anything else that we can assist you with, we are here for you 24/7.\n\nWish you a lovely day!​`
+      writeMessage(
+        tier,
+        result.nextTier,
+        result.tierGap,
+        "en",
+        currentPercentage,
+        result.remainingToNextTier
+      )
     );
 
     setWagerResult(result);
