@@ -41,6 +41,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { writeMessage } from "@/lib/utils";
+import { useCopy } from "@/app/hooks/use-copy";
 
 const formSchema = z.object({
   currentPercentage: z.coerce
@@ -61,7 +62,7 @@ export const CalculateProgressForm = ({
     typeof calculateProgress
   > | null>(null);
   const [message, setMessage] = useState("");
-  const [copied, setCopied] = useState(false);
+  const { copied, copy } = useCopy();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -72,7 +73,6 @@ export const CalculateProgressForm = ({
   });
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
-    setCopied(false);
     const { currentPercentage, tier } = values;
 
     const result = calculateProgress({
@@ -97,13 +97,6 @@ export const CalculateProgressForm = ({
     );
 
     setWagerResult(result);
-  };
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(message);
-    setCopied(true);
-    toast.success("Message copied to clipboard.");
-    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
@@ -204,7 +197,7 @@ export const CalculateProgressForm = ({
                 <TooltipTrigger asChild>
                   <Button
                     className="max-w-xs whitespace-pre-wrap break-words"
-                    onClick={handleCopy}
+                    onClick={() => copy(message)}
                   >
                     {copied ? (
                       <>
