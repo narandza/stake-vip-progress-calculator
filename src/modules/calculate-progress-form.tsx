@@ -182,7 +182,7 @@ export const CalculateProgressForm = ({
       </Form>
 
       {wagerResult && (
-        <Card className="mt-10 flex justify-center">
+        <Card className="mt-10 flex justify-center text-center">
           <CardHeader>
             <CardTitle>
               ${wagerResult.remainingToNextTier.toLocaleString()}
@@ -196,7 +196,7 @@ export const CalculateProgressForm = ({
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button
-                    className="max-w-xs whitespace-pre-wrap break-words"
+                    className="w-full flex justify-center items-center text-center"
                     onClick={() => copy(message)}
                   >
                     {copied ? (
