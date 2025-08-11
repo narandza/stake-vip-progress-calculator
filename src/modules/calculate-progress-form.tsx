@@ -49,6 +49,7 @@ const formSchema = z.object({
     .min(0, { message: "The minimum amount is 0" })
     .max(100, { message: "The maximum amount is 100" }),
   tier: TierEnum,
+  language: z.enum(["en", "es"]),
 });
 
 interface CalculateProgressFormProps {
@@ -69,11 +70,12 @@ export const CalculateProgressForm = ({
     defaultValues: {
       currentPercentage: 0,
       tier: "None",
+      language: "en",
     },
   });
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
-    const { currentPercentage, tier } = values;
+    const { currentPercentage, tier, language } = values;
 
     const result = calculateProgress({
       percentage: currentPercentage,
@@ -90,7 +92,7 @@ export const CalculateProgressForm = ({
         tier,
         result.nextTier,
         result.tierGap,
-        "en",
+        language,
         currentPercentage,
         result.remainingToNextTier
       )
@@ -160,6 +162,34 @@ export const CalculateProgressForm = ({
                   </Select>
                 </FormControl>
                 <FormDescription>Your current VIP rank</FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="language"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Language / Idioma</FormLabel>
+                <FormControl>
+                  <Select
+                    value={field.value}
+                    onValueChange={field.onChange}
+                    name={field.name}
+                  >
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Select language" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="en">English</SelectItem>
+                      <SelectItem value="es">Español</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </FormControl>
+                <FormDescription>
+                  Choose your preferred language
+                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
