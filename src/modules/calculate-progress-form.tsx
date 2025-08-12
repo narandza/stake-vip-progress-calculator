@@ -3,8 +3,9 @@
 import { z } from "zod";
 import { toast } from "sonner";
 import { useState } from "react";
-import { CopyCheckIcon, CopyIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
+import { CopyCheckIcon, CopyIcon } from "lucide-react";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 import {
   Card,
@@ -29,11 +30,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Input } from "@/components/ui/input";
-import { TierEnum, VipTier } from "@/constants";
-import { Button } from "@/components/ui/button";
-import { calculateProgress } from "@/lib/calculate";
-import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Tooltip,
   TooltipContent,
@@ -41,7 +37,11 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { writeMessage } from "@/lib/utils";
+import { Input } from "@/components/ui/input";
 import { useCopy } from "@/app/hooks/use-copy";
+import { TierEnum, VipTier } from "@/constants";
+import { Button } from "@/components/ui/button";
+import { calculateProgress } from "@/lib/calculate";
 
 const formSchema = z.object({
   currentPercentage: z.coerce
