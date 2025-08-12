@@ -39,7 +39,7 @@ import {
 import { writeMessage } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { useCopy } from "@/app/hooks/use-copy";
-import { TierEnum, VipTier } from "@/constants";
+import { LanguageEnum, TierEnum, VipTier } from "@/constants";
 import { Button } from "@/components/ui/button";
 import { calculateProgress } from "@/lib/calculate";
 
@@ -49,7 +49,7 @@ const formSchema = z.object({
     .min(0, { message: "The minimum amount is 0" })
     .max(100, { message: "The maximum amount is 100" }),
   tier: TierEnum,
-  language: z.enum(["en", "es"]),
+  language: LanguageEnum,
 });
 
 interface CalculateProgressFormProps {

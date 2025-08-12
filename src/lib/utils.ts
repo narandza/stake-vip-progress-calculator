@@ -1,3 +1,4 @@
+import { LanguageType } from "@/constants";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -9,7 +10,7 @@ export function writeMessage(
   tier: string,
   nextTier: string,
   tierGap: number,
-  language: "es" | "en" = "en",
+  language: LanguageType = "en",
   currentPercentage: number,
   remainingToNextTier: number
 ): string {
