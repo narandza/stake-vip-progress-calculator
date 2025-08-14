@@ -39,9 +39,9 @@ import {
 import { writeMessage } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { useCopy } from "@/app/hooks/use-copy";
-import { LanguageEnum, TierEnum, VipTier } from "@/constants";
 import { Button } from "@/components/ui/button";
 import { calculateProgress } from "@/lib/calculate";
+import { LanguageEnum, TierEnum, VipTier } from "@/constants";
 
 const formSchema = z.object({
   currentPercentage: z.coerce
