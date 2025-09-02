@@ -120,6 +120,9 @@ export const CalculateProgressForm = ({
                     type="number"
                     step="any"
                     placeholder="Enter current VIP progress percentage"
+                    className=" [appearance:textfield] 
+    [&::-webkit-outer-spin-button]:appearance-none 
+    [&::-webkit-inner-spin-button]:appearance-none"
                     {...field}
                   />
                 </FormControl>
