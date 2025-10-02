@@ -6,6 +6,14 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+export function formatMoney(
+  amount: number,
+  locale = "en-US",
+  currency = "USD"
+) {
+  return amount.toLocaleString(locale, { style: "currency", currency });
+}
+
 interface WriteMessageParams {
   tier: string;
   nextTier: string;
