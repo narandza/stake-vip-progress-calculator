@@ -11,12 +11,12 @@ export function bold(text: string | number): string {
   return `<strong>${text}</strong>`;
 }
 
-export function formatMoney(
-  amount: number,
-  locale = "en-US",
-  currency = "USD"
-) {
-  return amount.toLocaleString(locale, { style: "currency", currency });
+export function formatMoney(value: number, currency = "USD") {
+  return value.toLocaleString("en-US", {
+    style: "currency",
+    currency,
+    minimumFractionDigits: 2,
+  });
 }
 
 interface WriteMessageParams {
@@ -39,8 +39,8 @@ export function writeMessage({
   return MESSAGES[language]({
     tier: bold(tier),
     nextTier: bold(nextTier),
-    tierGap: bold(formatMoney(tierGap) + " USD"),
+    tierGap: bold(formatMoney(tierGap)),
     currentPercentage: bold(formatMoney(currentPercentage)),
-    remainingToNextTier: bold(formatMoney(remainingToNextTier) + " USD"),
+    remainingToNextTier: bold(formatMoney(remainingToNextTier)),
   });
 }
