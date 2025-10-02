@@ -201,7 +201,7 @@ export const CalculateProgressForm = ({
             name="language"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Language / Idioma</FormLabel>
+                <FormLabel>Language</FormLabel>
                 <FormControl>
                   <Select
                     value={field.value}

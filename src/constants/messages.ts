@@ -17,7 +17,7 @@ export const MESSAGES: MessageTemplates = {
     `
   Thank you for your patience.<br/><br/>
 
-  From what I can see, you’re currently <strong>${currentPercentage}%</strong> of the way toward your ${nextTier} VIP level.<br/><br/>
+  From what I can see, you’re currently ${currentPercentage}% of the way toward your ${nextTier} VIP level.<br/><br/>
 
   To move from ${tier} to ${nextTier}, you’ll need to wager a total of ${tierGap}, meaning there's ${remainingToNextTier} left to go.<br/><br/>
   Sports bets count three times more toward your wagering requirements. For example, to work out how many sports bets would get you to the next level, just divide the remaining amount by 3.<br/><br/>
