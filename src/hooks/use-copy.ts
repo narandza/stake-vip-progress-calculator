@@ -1,7 +1,8 @@
-import { DEFAULT_TIMEOUT_DURATION } from "@/constants/constants";
-import { stripHtml } from "@/lib/utils";
-import { useState } from "react";
 import { toast } from "sonner";
+import { useState } from "react";
+
+import { stripHtml } from "@/lib/utils";
+import { DEFAULT_TIMEOUT_DURATION } from "@/constants/constants";
 
 export const useCopy = () => {
   const [copied, setCopied] = useState(false);

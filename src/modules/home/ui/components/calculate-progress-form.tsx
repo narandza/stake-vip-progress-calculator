@@ -2,10 +2,10 @@
 
 import { z } from "zod";
 import { toast } from "sonner";
-import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { CopyCheckIcon, CopyIcon } from "lucide-react";
+import { useEffect, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { CopyCheckIcon, CopyIcon } from "lucide-react";
 
 import {
   Card,

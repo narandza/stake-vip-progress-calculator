@@ -1,4 +1,4 @@
-import { LanguageType } from "./constants";
+import { LanguageType } from "@/constants/language";
 
 const ARTICLE = "<strong><em>ADD_ARTICLE<em/><strong>";
 
