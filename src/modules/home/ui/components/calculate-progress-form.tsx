@@ -36,7 +36,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { writeMessage } from "@/lib/utils";
+import { stripHtml, writeMessage } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { useCopy } from "@/hooks/use-copy";
 import { Button } from "@/components/ui/button";
@@ -266,7 +266,7 @@ export const CalculateProgressForm = ({
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent side="bottom" className="max-w-xs break-words">
-                  {message}
+                  {stripHtml(message)}
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
