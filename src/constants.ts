@@ -36,5 +36,7 @@ export type TierName = z.infer<typeof TierEnum>;
 export const DEFAULT_LOGO_WIDTH = 128;
 export const DEFAULT_LOGO_HEIGHT = 128;
 
+export const DEFAULT_TIMEOUT_DURATION = 2000;
+
 export const LanguageEnum = z.enum(["en", "es"]);
 export type LanguageType = z.infer<typeof LanguageEnum>;

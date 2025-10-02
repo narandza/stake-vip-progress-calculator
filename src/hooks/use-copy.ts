@@ -1,3 +1,4 @@
+import { DEFAULT_TIMEOUT_DURATION } from "@/constants";
 import { stripHtml } from "@/lib/utils";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -17,19 +18,19 @@ export const useCopy = () => {
         await clipboard.write(data);
         setCopied(true);
         toast.success("Message copied to clipboard.");
-        setTimeout(() => setCopied(false), 2000);
+        setTimeout(() => setCopied(false), DEFAULT_TIMEOUT_DURATION);
       } catch (err) {
         console.error("Clipboard write failed, fallback to plain text", err);
         await clipboard.writeText(stripHtml(html));
         setCopied(true);
         toast.success("Message copied to clipboard.");
-        setTimeout(() => setCopied(false), 2000);
+        setTimeout(() => setCopied(false), DEFAULT_TIMEOUT_DURATION);
       }
     } else {
       await clipboard.writeText(stripHtml(html));
       setCopied(true);
       toast.success("Message copied to clipboard.");
-      setTimeout(() => setCopied(false), 2000);
+      setTimeout(() => setCopied(false), DEFAULT_TIMEOUT_DURATION);
     }
   };
 
