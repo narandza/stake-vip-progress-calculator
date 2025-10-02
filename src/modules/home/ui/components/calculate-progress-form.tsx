@@ -2,7 +2,7 @@
 
 import { z } from "zod";
 import { toast } from "sonner";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { CopyCheckIcon, CopyIcon } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -41,7 +41,7 @@ import { Input } from "@/components/ui/input";
 import { useCopy } from "@/hooks/use-copy";
 import { Button } from "@/components/ui/button";
 import { calculateProgress } from "@/lib/calculate";
-import { LanguageEnum, TierEnum, VipTier } from "@/constants";
+import { LanguageEnum, LanguageType, TierEnum, VipTier } from "@/constants";
 
 const formSchema = z.object({
   currentPercentage: z.coerce
@@ -65,12 +65,17 @@ export const CalculateProgressForm = ({
   const [message, setMessage] = useState("");
   const { copied, copy } = useCopy();
 
+  const storedLanguage =
+    (typeof window !== "undefined" &&
+      (localStorage.getItem("preferredLanguage") as LanguageType)) ||
+    "en";
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       currentPercentage: 0,
       tier: "None",
-      language: "en",
+      language: storedLanguage,
     },
   });
 
@@ -100,6 +105,23 @@ export const CalculateProgressForm = ({
 
     setWagerResult(result);
   };
+
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem("preferredLanguage");
+    if (storedLanguage) {
+      form.setValue("language", storedLanguage as LanguageType);
+    }
+  }, [form]);
+
+  useEffect(() => {
+    const subscription = form.watch((values) => {
+      if (values.language) {
+        localStorage.setItem("preferredLanguage", values.language);
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, [form]);
 
   return (
     <div className="">
