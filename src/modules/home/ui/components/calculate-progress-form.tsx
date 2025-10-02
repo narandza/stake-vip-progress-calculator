@@ -41,7 +41,11 @@ import { Input } from "@/components/ui/input";
 import { useCopy } from "@/hooks/use-copy";
 import { Button } from "@/components/ui/button";
 import { calculateProgress } from "@/lib/calculate";
-import { LanguageEnum, LanguageType } from "@/constants/language";
+import {
+  LanguageEnum,
+  languageOptions,
+  LanguageType,
+} from "@/constants/language";
 import { TierEnum, VipTier } from "@/constants/vip-tiers";
 
 const formSchema = z.object({
@@ -208,8 +212,11 @@ export const CalculateProgressForm = ({
                       <SelectValue placeholder="Select language" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="en">English</SelectItem>
-                      <SelectItem value="es">Español</SelectItem>
+                      {languageOptions.map((language, index) => (
+                        <SelectItem key={index} value={language.value}>
+                          {language.label}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </FormControl>
