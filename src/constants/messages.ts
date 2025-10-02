@@ -1,6 +1,6 @@
 import { LanguageType } from "@/constants/language";
 
-const ARTICLE = "<strong><em>ADD_ARTICLE<em/><strong>";
+const ARTICLE = "<strong><em>ADD_ARTICLE</em></strong>";
 
 interface MessageParams {
   tier: string;
