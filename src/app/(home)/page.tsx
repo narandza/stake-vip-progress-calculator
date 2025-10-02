@@ -2,7 +2,7 @@ import {
   DEFAULT_LOGO_HEIGHT,
   DEFAULT_LOGO_WIDTH,
   VIP_TIERS,
-} from "@/constants";
+} from "@/constants/constants";
 import { CalculateProgressForm } from "@/modules/home/ui/components/calculate-progress-form";
 import Image from "next/image";
 

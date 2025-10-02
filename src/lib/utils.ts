@@ -1,5 +1,5 @@
-import { LanguageType } from "@/constants";
-import { MESSAGES } from "@/messages";
+import { LanguageType } from "@/constants/constants";
+import { MESSAGES } from "@/constants/messages";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 

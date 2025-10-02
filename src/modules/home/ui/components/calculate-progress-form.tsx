@@ -41,7 +41,12 @@ import { Input } from "@/components/ui/input";
 import { useCopy } from "@/hooks/use-copy";
 import { Button } from "@/components/ui/button";
 import { calculateProgress } from "@/lib/calculate";
-import { LanguageEnum, LanguageType, TierEnum, VipTier } from "@/constants";
+import {
+  LanguageEnum,
+  LanguageType,
+  TierEnum,
+  VipTier,
+} from "@/constants/constants";
 
 const formSchema = z.object({
   currentPercentage: z.coerce

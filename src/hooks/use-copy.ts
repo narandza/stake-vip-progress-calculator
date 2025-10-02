@@ -1,4 +1,4 @@
-import { DEFAULT_TIMEOUT_DURATION } from "@/constants";
+import { DEFAULT_TIMEOUT_DURATION } from "@/constants/constants";
 import { stripHtml } from "@/lib/utils";
 import { useState } from "react";
 import { toast } from "sonner";
