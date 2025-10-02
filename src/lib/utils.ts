@@ -44,7 +44,7 @@ export function writeMessage({
     tier: bold(tier),
     nextTier: bold(nextTier),
     tierGap: bold(formatMoney(tierGap)),
-    currentPercentage: bold(formatMoney(currentPercentage)),
+    currentPercentage: bold(currentPercentage),
     remainingToNextTier: bold(formatMoney(remainingToNextTier)),
   });
 }
