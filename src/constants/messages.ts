@@ -1,4 +1,4 @@
-import { LanguageType } from "./constants";
+import { LanguageType } from "@/constants/language";
 
 const ARTICLE = "<strong><em>ADD_ARTICLE<em/><strong>";
 
@@ -44,4 +44,20 @@ export const MESSAGES: MessageTemplates = {
   
   Si tienes alguna otra pregunta o quieres una actualización de tu progreso, estamos disponibles para ayudarte las 24 horas, los 7 días de la semana. Sigue así, estás muy cerca.
   `,
+
+  ar: ({ tier, nextTier, tierGap, currentPercentage, remainingToNextTier }) =>
+    `
+شكراً لصبرك.<br/><br/>
+
+حسب ما أرى، أنت حالياً على <strong>${currentPercentage}%</strong> من الطريق نحو مستوى كبار الشخصيات ${nextTier}.<br/><br/>
+
+للانتقال من ${tier} إلى ${nextTier}، ستحتاج إلى المراهنة بمبلغ إجمالي قدره ${tierGap}، أي أن هناك ${remainingToNextTier} متبقي.<br/><br/>
+
+تُحتسب الرهانات الرياضية ثلاثة أضعاف متطلبات المراهنة الخاصة بك. على سبيل المثال، لحساب عدد الرهانات الرياضية التي ستنقلك إلى المستوى التالي، ببساطة اقسم المبلغ المتبقي على 3.<br/><br/>
+
+إذا كنت تراهن على مزيج من الرهانات الرياضية ورهانات الكازينو، فإن أفضل طريقة لتتبع تقدمك هي من خلال سجل معاملاتك. كما أعددنا دليلاً سريعاً لتتمكن من حسابه بنفسك في أي وقت:<br/>
+${ARTICLE}<br/><br/>
+
+إذا كانت لديك أي أسئلة أو كنت ترغب فقط في الحصول على تحديث أثناء اللعب، نحن هنا لخدمتك على مدار الساعة طوال أيام الأسبوع. استمر في التقدم الرائع!
+`,
 };

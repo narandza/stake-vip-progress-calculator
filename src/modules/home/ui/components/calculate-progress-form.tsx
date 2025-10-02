@@ -2,10 +2,10 @@
 
 import { z } from "zod";
 import { toast } from "sonner";
-import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { CopyCheckIcon, CopyIcon } from "lucide-react";
+import { useEffect, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { CopyCheckIcon, CopyIcon } from "lucide-react";
 
 import {
   Card,
@@ -41,7 +41,12 @@ import { Input } from "@/components/ui/input";
 import { useCopy } from "@/hooks/use-copy";
 import { Button } from "@/components/ui/button";
 import { calculateProgress } from "@/lib/calculate";
-import { LanguageEnum, LanguageType, TierEnum, VipTier } from "@/constants";
+import {
+  LanguageEnum,
+  languageOptions,
+  LanguageType,
+} from "@/constants/language";
+import { TierEnum, VipTier } from "@/constants/vip-tiers";
 
 const formSchema = z.object({
   currentPercentage: z.coerce
@@ -207,8 +212,11 @@ export const CalculateProgressForm = ({
                       <SelectValue placeholder="Select language" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="en">English</SelectItem>
-                      <SelectItem value="es">Español</SelectItem>
+                      {languageOptions.map((language, index) => (
+                        <SelectItem key={index} value={language.value}>
+                          {language.label}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </FormControl>

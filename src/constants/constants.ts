@@ -1,0 +1,4 @@
+export const DEFAULT_LOGO_WIDTH = 128;
+export const DEFAULT_LOGO_HEIGHT = 128;
+
+export const DEFAULT_TIMEOUT_DURATION = 2000;
