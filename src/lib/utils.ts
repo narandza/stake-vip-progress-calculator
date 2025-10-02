@@ -6,14 +6,23 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function writeMessage(
-  tier: string,
-  nextTier: string,
-  tierGap: number,
-  language: LanguageType = "en",
-  currentPercentage: number,
-  remainingToNextTier: number
-): string {
+interface WriteMessageParams {
+  tier: string;
+  nextTier: string;
+  tierGap: number;
+  language: LanguageType;
+  currentPercentage: number;
+  remainingToNextTier: number;
+}
+
+export function writeMessage({
+  tier,
+  nextTier,
+  tierGap,
+  language = "en",
+  currentPercentage,
+  remainingToNextTier,
+}: WriteMessageParams): string {
   if (language === "es") {
     return `Gracias por tu paciencia.\n\nPor lo que veo, actualmente llevas un ${currentPercentage}% de progreso hacia tu nivel VIP ${nextTier}.\n\nPara pasar de ${tier} a ${nextTier}, necesitas apostar un total de ${tierGap.toLocaleString()}$, lo que significa que aún te faltan ${remainingToNextTier.toLocaleString()}$ para alcanzarlo.\n\nLas apuestas deportivas cuentan tres veces más para cumplir con tus requisitos de apuesta. Por ejemplo, para calcular cuántas apuestas deportivas necesitarías para llegar al siguiente nivel, solo divide la cantidad restante entre 3.\n\nSi realizas una combinación de apuestas deportivas y de casino, la mejor manera de seguir tu progreso es revisando tu historial de transacciones. También hemos preparado una guía rápida para que puedas calcularlo tú mismo en cualquier momento:\nADD_ARTICLE\n\nSi tienes alguna otra pregunta o quieres una actualización de tu progreso, estamos disponibles para ayudarte las 24 horas, los 7 días de la semana. Sigue así, estás muy cerca.`;
   }

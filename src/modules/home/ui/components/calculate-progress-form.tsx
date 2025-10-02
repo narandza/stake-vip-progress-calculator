@@ -93,14 +93,14 @@ export const CalculateProgressForm = ({
     }
 
     setMessage(
-      writeMessage(
+      writeMessage({
         tier,
-        result.nextTier,
-        result.tierGap,
         language,
         currentPercentage,
-        result.remainingToNextTier
-      )
+        tierGap: result.tierGap,
+        nextTier: result.nextTier,
+        remainingToNextTier: result.remainingToNextTier,
+      })
     );
 
     setWagerResult(result);
