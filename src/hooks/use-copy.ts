@@ -1,3 +1,4 @@
+import { stripHtml } from "@/lib/utils";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -15,11 +16,10 @@ export const useCopy = () => {
         setTimeout(() => setCopied(false), 2000);
       } catch (err) {
         console.error("Clipboard write failed, fallback to plain text", err);
-        navigator.clipboard.writeText(html.replace(/<[^>]+>/g, "")); // fallback: strip HTML
+        navigator.clipboard.writeText(stripHtml(html));
       }
     } else {
-      // fallback for older browsers
-      navigator.clipboard.writeText(html.replace(/<[^>]+>/g, ""));
+      navigator.clipboard.writeText(stripHtml(html));
     }
   };
 
