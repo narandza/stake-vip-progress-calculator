@@ -1,4 +1,4 @@
-import { LanguageType } from "@/constants/constants";
+import { LanguageType } from "@/constants/language";
 import { MESSAGES } from "@/constants/messages";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
