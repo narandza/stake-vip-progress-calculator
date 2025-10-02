@@ -7,6 +7,10 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+export function bold(text: string | number): string {
+  return `<strong>${text}</strong>`;
+}
+
 export function formatMoney(
   amount: number,
   locale = "en-US",
@@ -33,10 +37,10 @@ export function writeMessage({
   remainingToNextTier,
 }: WriteMessageParams): string {
   return MESSAGES[language]({
-    tier,
-    nextTier,
-    tierGap,
-    currentPercentage,
-    remainingToNextTier,
+    tier: bold(tier),
+    nextTier: bold(nextTier),
+    tierGap: bold(formatMoney(tierGap) + " USD"),
+    currentPercentage: bold(formatMoney(currentPercentage)),
+    remainingToNextTier: bold(formatMoney(remainingToNextTier) + " USD"),
   });
 }
