@@ -80,7 +80,7 @@ export const VIP_TIERS: VipTier[] = [
   {
     name: "Diamond V",
     requirement: 500000000,
-    icon: "diamond-5.svg",
+    icon: "diamond-4.svg",
   },
   {
     name: "Obsidian",
