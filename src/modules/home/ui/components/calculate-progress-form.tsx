@@ -47,6 +47,7 @@ import {
   LanguageType,
 } from "@/constants/language";
 import { TierEnum, VipTier } from "@/constants/vip-tiers";
+import Image from "next/image";
 
 const formSchema = z.object({
   currentPercentage: z.coerce
@@ -185,6 +186,12 @@ export const CalculateProgressForm = ({
                           value={tier.name}
                           className="capitalize"
                         >
+                          <Image
+                            alt="icon"
+                            src={`/icons/${tier.icon}`}
+                            width={16}
+                            height={16}
+                          />
                           {tier.name}
                         </SelectItem>
                       ))}
