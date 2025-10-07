@@ -29,6 +29,7 @@ export const MESSAGES: MessageTemplates = {
   If you have any questions or just want an update along the way, we’re here for you 24/7. Keep up the great progress!
   `,
 
+  // Spanish translation
   es: ({ tier, nextTier, tierGap, currentPercentage, remainingToNextTier }) =>
     `
   Gracias por tu paciencia.<br/><br/>
@@ -45,6 +46,8 @@ export const MESSAGES: MessageTemplates = {
   Si tienes alguna otra pregunta o quieres una actualización de tu progreso, estamos disponibles para ayudarte las 24 horas, los 7 días de la semana. Sigue así, estás muy cerca.
   `,
 
+  // Arabic translation
+
   ar: ({ tier, nextTier, tierGap, currentPercentage, remainingToNextTier }) =>
     `
 شكراً لصبرك.<br/><br/>
@@ -60,4 +63,21 @@ ${ARTICLE}<br/><br/>
 
 إذا كانت لديك أي أسئلة أو كنت ترغب فقط في الحصول على تحديث أثناء اللعب، نحن هنا لخدمتك على مدار الساعة طوال أيام الأسبوع. استمر في التقدم الرائع!
 `,
+
+  // Turkish translation
+  tr: ({ tier, nextTier, tierGap, currentPercentage, remainingToNextTier }) =>
+    `
+  Beklediğiniz için teşekkürler.<br/><br/>
+
+  Gördüğümüz kadarıyla şu anda ${nextTier} VIP seviyenize %${currentPercentage} oranında yaklaştınız.<br/><br/>
+
+  ${tier} seviyesinden ${nextTier} seviyesine geçmek için toplam ${tierGap} tutarında çevrim yapmanız gerekmekte, yani ${remainingToNextTier} tutarında bir çevriminiz daha kalmış.<br/><br/>
+
+  Spor bahisleri, çevrim gereksinimlerinize üç kat daha fazla katkı sağlar. Örneğin, bir sonraki seviyeye ulaşmak için ne kadar spor bahsi yapmanız gerektiğini hesaplamak için kalan tutarı 3’e bölmeniz yeterlidir.<br/><br/>
+
+  Hem spor hem de casino bahisleri oynuyorsanız, ilerlemenizi takip etmenin en iyi yolu işlem geçmişinizi incelemektir. Ayrıca, bunu dilediğiniz zaman kendiniz hesaplayabilmeniz için hızlı bir rehber hazırladık:<br/>
+  ${ARTICLE}<br/><br/>
+
+  Herhangi bir sorunuz olursa veya süreç boyunca güncelleme isterseniz, 7/24 buradayız. İlerlemenizde bol şanslar!
+  `,
 };
