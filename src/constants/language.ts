@@ -1,6 +1,6 @@
 import z from "zod";
 
-export const LanguageEnum = z.enum(["en", "es", "ar", "tr"]);
+export const LanguageEnum = z.enum(["en", "es", "ar", "tr", "fr"]);
 export type LanguageType = z.infer<typeof LanguageEnum>;
 
 export const languageOptions: { value: LanguageType; label: string }[] = [
@@ -19,5 +19,9 @@ export const languageOptions: { value: LanguageType; label: string }[] = [
   {
     value: "tr",
     label: "Türkçe",
+  },
+  {
+    value: "fr",
+    label: "Français",
   },
 ];
