@@ -69,20 +69,21 @@ ${ARTICLE}<br/><br/>
     `
   Beklediğiniz için teşekkürler.<br/><br/>
 
-  Gördüğümüz kadarıyla şu anda ${nextTier} VIP seviyenize %${currentPercentage} oranında yaklaştınız.<br/><br/>
+  Gördüğümüz kadarıyla şu anda <strong>${currentPercentage}%</strong> oranında <strong>${nextTier}</strong> VIP seviyenize yaklaştınız.<br/><br/>
 
-  ${tier} seviyesinden ${nextTier} seviyesine geçmek için toplam ${tierGap} tutarında çevrim yapmanız gerekmekte, yani ${remainingToNextTier} tutarında bir çevriminiz daha kalmış.<br/><br/>
+  <strong>${tier}</strong> seviyesinden <strong>${nextTier}</strong> seviyesine geçmek için toplam <strong>${tierGap}</strong> çevrim yapmanız gerekmektedir, yani <strong>${remainingToNextTier}</strong> daha kalmıştır.<br/><br/>
 
-  Spor bahisleri, çevrim gereksinimlerinize üç kat daha fazla katkı sağlar. Örneğin, bir sonraki seviyeye ulaşmak için ne kadar spor bahsi yapmanız gerektiğini hesaplamak için kalan tutarı 3’e bölmeniz yeterlidir.<br/><br/>
+  Spor bahisleri, bahis gereksinimlerinize üç kat daha fazla eklenir. Örneğin, bir sonraki seviyeye geçmek için kaç spor bahsi yapmanız gerektiğini hesaplamak için kalan tutarı 3'e bölmeniz yeterlidir.<br/><br/>
 
-  Hem spor hem de casino bahisleri oynuyorsanız, ilerlemenizi takip etmenin en iyi yolu işlem geçmişinizi incelemektir. Ayrıca, bunu dilediğiniz zaman kendiniz hesaplayabilmeniz için hızlı bir rehber hazırladık:<br/>
+  Spor ve casino bahislerini bir arada oynuyorsanız, ilerlemenizi takip etmenin en iyi yolu işlem geçmişinizi incelemektir.<br/>
+  Ayrıca, istediğiniz zaman bunu kendiniz hesaplayabilmeniz için hızlı bir rehber hazırladık:<br/>
   ${ARTICLE}<br/><br/>
 
-  Herhangi bir sorunuz olursa veya süreç boyunca güncelleme isterseniz, 7/24 buradayız. İlerlemenizde bol şanslar!
+  Herhangi bir sorunuz varsa veya bu süreçte bir güncelleme isterseniz, 7/24 buradayız. İlerlemenizde bol şanslar!
   `,
 
   // French translation
-  fr: ({ tier, nextTier, tierGap, currentPercentage, remainingToNextTier }) => `
+  fr: ({ nextTier, tierGap, currentPercentage, remainingToNextTier }) => `
 Merci pour votre patience.<br/><br/>
 
 D'après ce que je vois, vous avez atteint ${currentPercentage}% vers le rang VIP ${nextTier}. Pour atteindre le niveau ${nextTier}, vous devriez parier un total de ${tierGap}, ce qui veut dire qu'il reste encore ${remainingToNextTier} à parier.<br/><br/>
