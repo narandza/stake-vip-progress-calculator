@@ -3,7 +3,7 @@
 import { z } from "zod";
 import { toast } from "sonner";
 import { useForm } from "react-hook-form";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import {
@@ -132,6 +132,15 @@ export const CalculateProgressForm = ({
     return () => subscription.unsubscribe();
   }, [form]);
 
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+      inputRef.current.select();
+    }
+  }, []);
+
   return (
     <div className="flex flex-col gap-y-10">
       <Form {...form}>
@@ -150,14 +159,19 @@ export const CalculateProgressForm = ({
                 </FormLabel>
                 <FormControl>
                   <Input
-                    autoFocus
+                    {...field}
+                    ref={(e) => {
+                      field.ref(e);
+                      inputRef.current = e;
+                    }}
                     type="number"
                     step="any"
+                    autoFocus
                     placeholder="Enter current VIP progress percentage"
-                    className=" [appearance:textfield] 
-    [&::-webkit-outer-spin-button]:appearance-none 
-    [&::-webkit-inner-spin-button]:appearance-none"
-                    {...field}
+                    onFocus={(e: React.FocusEvent<HTMLInputElement>) => {
+                      e.target.select();
+                    }}
+                    className=" [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   />
                 </FormControl>
                 <FormDescription>Your current VIP progress</FormDescription>
