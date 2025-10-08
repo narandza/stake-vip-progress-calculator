@@ -7,9 +7,11 @@ interface Props {
 
 const Layout = ({ children }: Props) => {
   return (
-    <main className="flex flex-col min-h-screen items-center justify-center gap-y-">
+    <main className="flex flex-col min-h-screen bg-background text-foreground">
       <Header />
-      <div className="flex flex-1">{children}</div>
+      <div className="flex-1 flex justify-center pt-10">
+        <div className="w-full max-w-xs">{children}</div>
+      </div>
       <Footer />
     </main>
   );
