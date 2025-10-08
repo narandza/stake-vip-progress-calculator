@@ -225,7 +225,7 @@ export const CalculateProgressForm = ({
             name="language"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Language</FormLabel>
+                <FormLabel className="">Language</FormLabel>
                 <FormControl>
                   <Select
                     value={field.value}
@@ -261,7 +261,12 @@ export const CalculateProgressForm = ({
             >
               {form.formState.isSubmitting ? "Calculating..." : "Calculate"}
             </Button>
-            <Button variant="outline" onClick={handleReset}>
+            <Button
+              variant="outline"
+              size="sm"
+              className=" cursor-pointer"
+              onClick={handleReset}
+            >
               Reset
             </Button>
           </div>

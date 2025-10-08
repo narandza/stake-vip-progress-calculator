@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export const Header = () => {
   return (
-    <header className="flex flex-col items-center">
+    <header className="flex flex-col items-center gap-y-2">
       <Image
         src="/logo.svg"
         alt="Logo"
@@ -15,9 +15,7 @@ export const Header = () => {
         className="invert mt-6"
       />
 
-      <div className="mt-10 ">
-        <h1 className="text-xl">Stake VIP Progress Calculator</h1>
-      </div>
+      <h1 className="text-2xl font-bold">Stake VIP Progress Calculator</h1>
     </header>
   );
 };
