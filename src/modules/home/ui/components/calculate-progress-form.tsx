@@ -5,15 +5,7 @@ import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CopyCheckIcon, CopyIcon } from "lucide-react";
 
-import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import {
   Form,
   FormControl,
@@ -30,15 +22,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { stripHtml, writeMessage } from "@/lib/utils";
+
+import { writeMessage } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
-import { useCopy } from "@/hooks/use-copy";
 import { Button } from "@/components/ui/button";
 import { calculateProgress } from "@/lib/calculate";
 import {
@@ -53,6 +39,7 @@ import {
   DEFAULT_ICON_WIDTH,
   STORAGE_KEYS,
 } from "@/modules/constants/constants";
+import { WagerResultCard } from "./wager-result-card";
 
 const formSchema = z.object({
   currentPercentage: z.coerce
@@ -74,7 +61,6 @@ export const CalculateProgressForm = ({
     typeof calculateProgress
   > | null>(null);
   const [message, setMessage] = useState("");
-  const { copied, copy } = useCopy();
 
   const storedLanguage =
     (typeof window !== "undefined" &&
@@ -147,12 +133,13 @@ export const CalculateProgressForm = ({
   }, [form]);
 
   return (
-    <div className="">
+    <div className="flex flex-col gap-y-10">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
           className="space-y-6 flex flex-col mt-5 "
         >
+          {/* Current Percentage form field */}
           <FormField
             control={form.control}
             name="currentPercentage"
@@ -179,6 +166,7 @@ export const CalculateProgressForm = ({
             )}
           />
 
+          {/* VIP rank select form field */}
           <FormField
             control={form.control}
             name="tier"
@@ -225,7 +213,7 @@ export const CalculateProgressForm = ({
             )}
           />
 
-          {/* Language Select Fields */}
+          {/* Language Select Form Field */}
           <FormField
             control={form.control}
             name="language"
@@ -281,41 +269,10 @@ export const CalculateProgressForm = ({
       </Form>
 
       {wagerResult && (
-        <Card className="mt-10 pt-6 border-t animate-in fade-in duration-300 text-center">
-          <CardHeader>
-            <CardTitle className="text-xl font-bold">
-              ${wagerResult.remainingToNextTier.toLocaleString()}
-            </CardTitle>
-            <CardDescription className="text-xs text-muted-foreground">
-              Remaining wager amount to next VIP rank
-            </CardDescription>
-          </CardHeader>
-          <CardFooter>
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button
-                    className="w-full flex justify-center items-center text-center"
-                    onClick={() => copy(message)}
-                  >
-                    {copied ? (
-                      <>
-                        Copied <CopyCheckIcon />
-                      </>
-                    ) : (
-                      <>
-                        Copy Message <CopyIcon />
-                      </>
-                    )}
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent side="bottom" className="max-w-xs break-words">
-                  {stripHtml(message)}
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-          </CardFooter>
-        </Card>
+        <WagerResultCard
+          message={message}
+          remainingToNextTier={wagerResult.remainingToNextTier}
+        />
       )}
     </div>
   );
