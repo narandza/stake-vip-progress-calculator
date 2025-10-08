@@ -1,8 +1,9 @@
+import Image from "next/image";
+
 import {
   DEFAULT_LOGO_HEIGHT,
   DEFAULT_LOGO_WIDTH,
 } from "@/modules/constants/constants";
-import Image from "next/image";
 
 export const Header = () => {
   return (

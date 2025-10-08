@@ -1,4 +1,5 @@
-import { Button } from "@/components/ui/button";
+import { CopyCheckIcon, CopyIcon } from "lucide-react";
+
 import {
   Card,
   CardDescription,
@@ -6,15 +7,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { useCopy } from "@/hooks/use-copy";
-import { stripHtml } from "@/lib/utils";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { CopyCheckIcon, CopyIcon } from "lucide-react";
+import { stripHtml } from "@/lib/utils";
+import { useCopy } from "@/hooks/use-copy";
+import { Button } from "@/components/ui/button";
 
 interface WagerResultCardProps {
   remainingToNextTier: number;

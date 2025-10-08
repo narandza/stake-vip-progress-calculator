@@ -1,6 +1,7 @@
 "use client";
 
 import { z } from "zod";
+import Image from "next/image";
 import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import { useEffect, useRef, useState } from "react";
@@ -15,6 +16,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+
 import {
   Select,
   SelectContent,
@@ -22,23 +24,22 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
-import { writeMessage } from "@/lib/utils";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { calculateProgress } from "@/lib/calculate";
 import {
   LanguageEnum,
   languageOptions,
   LanguageType,
 } from "@/modules/constants/language";
-import { TierEnum, VipTier } from "@/modules/constants/vip-tiers";
-import Image from "next/image";
 import {
   DEFAULT_ICON_HEIGHT,
   DEFAULT_ICON_WIDTH,
   STORAGE_KEYS,
 } from "@/modules/constants/constants";
+import { writeMessage } from "@/lib/utils";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { calculateProgress } from "@/lib/calculate";
+import { TierEnum, VipTier } from "@/modules/constants/vip-tiers";
+
 import { WagerResultCard } from "./wager-result-card";
 
 const formSchema = z.object({
