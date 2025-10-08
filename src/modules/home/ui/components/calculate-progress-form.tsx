@@ -246,7 +246,7 @@ export const CalculateProgressForm = ({
                     <SelectContent>
                       {languageOptions.map((language, index) => (
                         <SelectItem key={index} value={language.value}>
-                          {language.label}
+                          {`${language.icon} ${language.label}`}
                         </SelectItem>
                       ))}
                     </SelectContent>
