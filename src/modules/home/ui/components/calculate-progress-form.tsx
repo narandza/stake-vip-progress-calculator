@@ -116,6 +116,18 @@ export const CalculateProgressForm = ({
     setWagerResult(result);
   };
 
+  const handleReset = () => {
+    const currentLanguage = form.getValues("language");
+
+    form.reset({
+      currentPercentage: 0,
+      tier: "None",
+      language: currentLanguage,
+    });
+
+    localStorage.setItem("preferredLanguage", currentLanguage);
+  };
+
   useEffect(() => {
     const storedLanguage = localStorage.getItem("preferredLanguage");
     if (storedLanguage) {
@@ -248,7 +260,7 @@ export const CalculateProgressForm = ({
             >
               {form.formState.isSubmitting ? "Calculating..." : "Calculate"}
             </Button>
-            <Button variant="outline" onClick={() => form.reset()}>
+            <Button variant="outline" onClick={handleReset}>
               Reset
             </Button>
           </div>
