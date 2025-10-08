@@ -151,14 +151,16 @@ export const CalculateProgressForm = ({
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-10 flex flex-col mt-5 "
+          className="space-y-6 flex flex-col mt-5 "
         >
           <FormField
             control={form.control}
             name="currentPercentage"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Current VIP Progress Percentage:</FormLabel>
+                <FormLabel className="text-sm font-medium">
+                  Current VIP Progress Percentage:
+                </FormLabel>
                 <FormControl>
                   <Input
                     autoFocus
@@ -182,7 +184,9 @@ export const CalculateProgressForm = ({
             name="tier"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Current VIP Rank:</FormLabel>
+                <FormLabel className="text-sm font-medium">
+                  Current VIP Rank:
+                </FormLabel>
                 <FormControl className="w-full ">
                   <Select
                     value={field.value}
@@ -220,12 +224,14 @@ export const CalculateProgressForm = ({
               </FormItem>
             )}
           />
+
+          {/* Language Select Fields */}
           <FormField
             control={form.control}
             name="language"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="">Language</FormLabel>
+                <FormLabel className="text-sm font-medium">Language</FormLabel>
                 <FormControl>
                   <Select
                     value={field.value}
@@ -252,6 +258,7 @@ export const CalculateProgressForm = ({
             )}
           />
 
+          {/* Form Buttons */}
           <div className="flex flex-col gap-2">
             <Button
               type="submit"
@@ -262,7 +269,7 @@ export const CalculateProgressForm = ({
               {form.formState.isSubmitting ? "Calculating..." : "Calculate"}
             </Button>
             <Button
-              variant="outline"
+              variant="secondary"
               size="sm"
               className=" cursor-pointer"
               onClick={handleReset}
@@ -274,12 +281,12 @@ export const CalculateProgressForm = ({
       </Form>
 
       {wagerResult && (
-        <Card className="mt-10 flex justify-center text-center">
+        <Card className="mt-10 pt-6 border-t animate-in fade-in duration-300 text-center">
           <CardHeader>
-            <CardTitle>
+            <CardTitle className="text-xl font-bold">
               ${wagerResult.remainingToNextTier.toLocaleString()}
             </CardTitle>
-            <CardDescription>
+            <CardDescription className="text-xs text-muted-foreground">
               Remaining wager amount to next VIP rank
             </CardDescription>
           </CardHeader>
