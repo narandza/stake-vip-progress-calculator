@@ -1,8 +1,8 @@
 import { twMerge } from "tailwind-merge";
 import { clsx, type ClassValue } from "clsx";
 
-import { MESSAGES } from "@/constants/messages";
-import { LanguageType } from "@/constants/language";
+import { MESSAGES } from "@/modules/constants/messages";
+import { LanguageType } from "@/modules/constants/language";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));

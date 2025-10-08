@@ -45,10 +45,13 @@ import {
   LanguageEnum,
   languageOptions,
   LanguageType,
-} from "@/constants/language";
-import { TierEnum, VipTier } from "@/constants/vip-tiers";
+} from "@/modules/constants/language";
+import { TierEnum, VipTier } from "@/modules/constants/vip-tiers";
 import Image from "next/image";
-import { DEFAULT_ICON_HEIGHT, DEFAULT_ICON_WIDTH } from "@/constants/constants";
+import {
+  DEFAULT_ICON_HEIGHT,
+  DEFAULT_ICON_WIDTH,
+} from "@/modules/constants/constants";
 
 const formSchema = z.object({
   currentPercentage: z.coerce
