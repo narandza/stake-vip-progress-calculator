@@ -51,6 +51,7 @@ import Image from "next/image";
 import {
   DEFAULT_ICON_HEIGHT,
   DEFAULT_ICON_WIDTH,
+  STORAGE_KEYS,
 } from "@/modules/constants/constants";
 
 const formSchema = z.object({
@@ -77,7 +78,7 @@ export const CalculateProgressForm = ({
 
   const storedLanguage =
     (typeof window !== "undefined" &&
-      (localStorage.getItem("preferredLanguage") as LanguageType)) ||
+      (localStorage.getItem(STORAGE_KEYS.preferredLanguage) as LanguageType)) ||
     "en";
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -125,11 +126,11 @@ export const CalculateProgressForm = ({
       language: currentLanguage,
     });
 
-    localStorage.setItem("preferredLanguage", currentLanguage);
+    localStorage.setItem(STORAGE_KEYS.preferredLanguage, currentLanguage);
   };
 
   useEffect(() => {
-    const storedLanguage = localStorage.getItem("preferredLanguage");
+    const storedLanguage = localStorage.getItem(STORAGE_KEYS.preferredLanguage);
     if (storedLanguage) {
       form.setValue("language", storedLanguage as LanguageType);
     }
@@ -138,7 +139,7 @@ export const CalculateProgressForm = ({
   useEffect(() => {
     const subscription = form.watch((values) => {
       if (values.language) {
-        localStorage.setItem("preferredLanguage", values.language);
+        localStorage.setItem(STORAGE_KEYS.preferredLanguage, values.language);
       }
     });
 

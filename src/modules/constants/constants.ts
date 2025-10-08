@@ -7,3 +7,7 @@ export const DEFAULT_ICON_WIDTH = 16;
 export const DEFAULT_ICON_HEIGHT = 16;
 
 export const DEFAULT_TIMEOUT_DURATION = 2000;
+
+export const STORAGE_KEYS = {
+  preferredLanguage: "preferredLanguage",
+};
