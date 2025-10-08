@@ -145,7 +145,7 @@ export const CalculateProgressForm = ({
             name="currentPercentage"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-sm font-medium">
+                <FormLabel className="text-lg font-medium">
                   Current VIP Progress Percentage:
                 </FormLabel>
                 <FormControl>
@@ -172,7 +172,7 @@ export const CalculateProgressForm = ({
             name="tier"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-sm font-medium">
+                <FormLabel className="text-lg font-medium">
                   Current VIP Rank:
                 </FormLabel>
                 <FormControl className="w-full ">
@@ -219,7 +219,7 @@ export const CalculateProgressForm = ({
             name="language"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-sm font-medium">Language</FormLabel>
+                <FormLabel className="text-lg font-medium">Language</FormLabel>
                 <FormControl>
                   <Select
                     value={field.value}

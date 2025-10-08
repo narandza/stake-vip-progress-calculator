@@ -15,7 +15,7 @@ export const Header = () => {
         className="invert mt-6"
       />
 
-      <h1 className="text-2xl font-bold">Stake VIP Progress Calculator</h1>
+      <h1 className="text-2xl font-bold "> VIP Progress Calculator</h1>
     </header>
   );
 };
