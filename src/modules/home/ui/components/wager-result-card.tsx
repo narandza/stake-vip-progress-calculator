@@ -16,15 +16,19 @@ import {
 import { stripHtml } from "@/lib/utils";
 import { useCopy } from "@/hooks/use-copy";
 import { Button } from "@/components/ui/button";
+import { logUsage } from "@/lib/log-usage";
+import { LanguageType } from "@/modules/constants/language";
 
 interface WagerResultCardProps {
   remainingToNextTier: number;
   message: string;
+  language: LanguageType;
 }
 
 export const WagerResultCard = ({
   message,
   remainingToNextTier,
+  language,
 }: WagerResultCardProps) => {
   const { copied, copy } = useCopy();
 
@@ -44,7 +48,10 @@ export const WagerResultCard = ({
             <TooltipTrigger asChild>
               <Button
                 className="w-full flex justify-center items-center text-center"
-                onClick={() => copy(message)}
+                onClick={() => {
+                  copy(message);
+                  if (!copied) logUsage("copy", language);
+                }}
               >
                 {copied ? (
                   <>

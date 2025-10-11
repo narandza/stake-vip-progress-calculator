@@ -1,9 +1,13 @@
+import { LanguageType } from "@/modules/constants/language";
 import fs from "fs";
 import path from "path";
 
 const LOG_FILE = path.join(process.cwd(), "logs", "usage.json");
 
-export function logUsage(type: "visit" | "copy", language: string) {
+export function logUsage(
+  type: "visit" | "calculate" | "copy",
+  language: LanguageType
+) {
   const entry = {
     type,
     language,

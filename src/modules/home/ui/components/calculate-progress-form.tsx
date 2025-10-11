@@ -41,6 +41,7 @@ import { calculateProgress } from "@/lib/calculate";
 import { TierEnum, VipTier } from "@/modules/constants/vip-tiers";
 
 import { WagerResultCard } from "./wager-result-card";
+import { logUsage } from "@/lib/log-usage";
 
 const formSchema = z.object({
   currentPercentage: z.coerce
@@ -89,6 +90,8 @@ export const CalculateProgressForm = ({
       toast.error("Something went wrong.");
       return;
     }
+
+    logUsage("calculate", language);
 
     setMessage(
       writeMessage({
@@ -140,6 +143,11 @@ export const CalculateProgressForm = ({
       inputRef.current.focus();
       inputRef.current.select();
     }
+  }, []);
+
+  useEffect(() => {
+    const lang = localStorage.getItem(STORAGE_KEYS.preferredLanguage) || "en";
+    logUsage("visit", lang as LanguageType);
   }, []);
 
   return (
@@ -286,6 +294,7 @@ export const CalculateProgressForm = ({
       {wagerResult && (
         <WagerResultCard
           message={message}
+          language={form.getValues("language")}
           remainingToNextTier={wagerResult.remainingToNextTier}
         />
       )}
