@@ -1,13 +1,13 @@
+"use server";
+
+import { LOG_TYPE } from "@/modules/constants/constants";
 import { LanguageType } from "@/modules/constants/language";
 import fs from "fs";
 import path from "path";
 
 const LOG_FILE = path.join(process.cwd(), "logs", "usage.json");
 
-export function logUsage(
-  type: "visit" | "calculate" | "copy",
-  language: LanguageType
-) {
+export async function logUsage(type: LOG_TYPE, language: LanguageType) {
   const entry = {
     type,
     language,

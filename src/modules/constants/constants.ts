@@ -11,3 +11,5 @@ export const DEFAULT_TIMEOUT_DURATION = 2000;
 export const STORAGE_KEYS = {
   preferredLanguage: "preferredLanguage",
 };
+
+export type LOG_TYPE = "visit" | "calculate" | "copy";
