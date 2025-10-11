@@ -24,3 +24,15 @@ export async function POST(req: Request) {
 
   return NextResponse.json({ success: true });
 }
+
+export async function GET() {
+  try {
+    const data = await fs.readFile(LOG_FILE, "utf-8");
+
+    const logs = JSON.parse(data);
+
+    return NextResponse.json(logs);
+  } catch {
+    return NextResponse.json([]);
+  }
+}
