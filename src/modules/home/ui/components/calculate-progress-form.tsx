@@ -35,13 +35,13 @@ import {
   STORAGE_KEYS,
 } from "@/modules/constants/constants";
 import { writeMessage } from "@/lib/utils";
+import { logUsage } from "@/lib/log-usage";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { calculateProgress } from "@/lib/calculate";
 import { TierEnum, VipTier } from "@/modules/constants/vip-tiers";
 
 import { WagerResultCard } from "./wager-result-card";
-import { logUsage } from "@/lib/log-usage";
 
 const formSchema = z.object({
   currentPercentage: z.coerce

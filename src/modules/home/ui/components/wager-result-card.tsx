@@ -15,8 +15,8 @@ import {
 } from "@/components/ui/tooltip";
 import { stripHtml } from "@/lib/utils";
 import { useCopy } from "@/hooks/use-copy";
-import { Button } from "@/components/ui/button";
 import { logUsage } from "@/lib/log-usage";
+import { Button } from "@/components/ui/button";
 import { LanguageType } from "@/modules/constants/language";
 
 interface WagerResultCardProps {

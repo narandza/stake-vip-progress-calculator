@@ -1,9 +1,10 @@
 "use server";
 
-import { LOG_TYPE } from "@/modules/constants/constants";
-import { LanguageType } from "@/modules/constants/language";
 import fs from "fs";
 import path from "path";
+
+import { LOG_TYPE } from "@/modules/constants/constants";
+import { LanguageType } from "@/modules/constants/language";
 
 const LOG_FILE = path.join(process.cwd(), "logs", "usage.json");
 
