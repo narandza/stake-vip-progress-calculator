@@ -219,13 +219,16 @@ export const CalculateProgressForm = ({
                           value={tier.name}
                           className="capitalize"
                         >
-                          <Image
-                            alt="icon"
-                            src={`/icons/${tier.icon}`}
-                            width={DEFAULT_ICON_WIDTH}
-                            height={DEFAULT_ICON_HEIGHT}
-                          />
-                          {tier.name}
+                          <div className="flex items-center justify-center gap-x-2 text-md">
+                            <Image
+                              alt="icon"
+                              src={`/icons/${tier.icon}`}
+                              width={DEFAULT_ICON_WIDTH}
+                              height={DEFAULT_ICON_HEIGHT}
+                              className="size-4"
+                            />
+                            {tier.name}
+                          </div>
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -256,13 +259,15 @@ export const CalculateProgressForm = ({
                     <SelectContent>
                       {languageOptions.map((language, index) => (
                         <SelectItem key={index} value={language.value}>
-                          <span
-                            className="size-5"
-                            dangerouslySetInnerHTML={{
-                              __html: twemoji.parse(language.icon),
-                            }}
-                          />
-                          {`${language.label}`}
+                          <div className="flex items-center justify-center gap-x-2 text-lg">
+                            <span
+                              className="size-5"
+                              dangerouslySetInnerHTML={{
+                                __html: twemoji.parse(language.icon),
+                              }}
+                            />
+                            {`${language.label}`}
+                          </div>
                         </SelectItem>
                       ))}
                     </SelectContent>
