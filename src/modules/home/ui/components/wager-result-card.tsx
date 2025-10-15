@@ -15,9 +15,9 @@ import {
 } from "@/components/ui/tooltip";
 import { stripHtml } from "@/lib/utils";
 import { useCopy } from "@/hooks/use-copy";
-import { logUsage } from "@/lib/log-usage";
 import { Button } from "@/components/ui/button";
 import { LanguageType } from "@/modules/constants/language";
+import { logEvent } from "@/lib/logEvent";
 
 interface WagerResultCardProps {
   remainingToNextTier: number;
@@ -50,7 +50,7 @@ export const WagerResultCard = ({
                 className="w-full flex justify-center items-center text-center"
                 onClick={() => {
                   copy(message);
-                  if (!copied) logUsage("copy", language);
+                  if (!copied) logEvent("copy", language);
                 }}
               >
                 {copied ? (

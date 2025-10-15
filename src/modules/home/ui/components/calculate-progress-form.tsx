@@ -36,13 +36,13 @@ import {
   STORAGE_KEYS,
 } from "@/modules/constants/constants";
 import { writeMessage } from "@/lib/utils";
-import { logUsage } from "@/lib/log-usage";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { calculateProgress } from "@/lib/calculate";
 import { TierEnum, VipTier } from "@/modules/constants/vip-tiers";
 
 import { WagerResultCard } from "./wager-result-card";
+import { logEvent } from "@/lib/logEvent";
 
 const formSchema = z.object({
   currentPercentage: z.coerce
@@ -92,7 +92,7 @@ export const CalculateProgressForm = ({
       return;
     }
 
-    logUsage("calculate", language);
+    logEvent("calculate", language);
 
     setMessage(
       writeMessage({
@@ -148,7 +148,7 @@ export const CalculateProgressForm = ({
 
   useEffect(() => {
     const lang = localStorage.getItem(STORAGE_KEYS.preferredLanguage) || "en";
-    logUsage("visit", lang as LanguageType);
+    logEvent("visit", lang as LanguageType);
   }, []);
 
   return (
