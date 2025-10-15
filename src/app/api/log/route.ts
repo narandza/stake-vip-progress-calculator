@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { logUsage } from "@/lib/log-usage";
+import { logUsage } from "@/lib/logUsage";
 import { LanguageType } from "@/modules/constants/language";
 
 export async function POST(req: NextRequest) {

@@ -14,7 +14,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { stripHtml } from "@/lib/utils";
-import { useCopy } from "@/hooks/use-copy";
+import { useCopy } from "@/hooks/useCopy";
 import { Button } from "@/components/ui/button";
 import { LanguageType } from "@/modules/constants/language";
 import { logEvent } from "@/lib/logEvent";
