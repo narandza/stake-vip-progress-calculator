@@ -259,7 +259,7 @@ export const CalculateProgressForm = ({
                     <SelectContent>
                       {languageOptions.map((language, index) => (
                         <SelectItem key={index} value={language.value}>
-                          <div className="flex items-center justify-center gap-x-2 text-lg">
+                          <div className="flex items-center justify-center gap-x-2 text-md">
                             <span
                               className="size-5"
                               dangerouslySetInnerHTML={{
