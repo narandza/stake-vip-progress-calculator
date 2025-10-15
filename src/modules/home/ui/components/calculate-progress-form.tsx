@@ -39,7 +39,7 @@ import { writeMessage } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { calculateProgress } from "@/lib/calculate";
-import { TierEnum, VipTier } from "@/modules/constants/vip-tiers";
+import { TierEnum, VipTier } from "@/modules/constants/vipTiers";
 
 import { WagerResultCard } from "./wager-result-card";
 import { logEvent } from "@/lib/logEvent";
