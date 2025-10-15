@@ -3,6 +3,7 @@
 import { z } from "zod";
 import Image from "next/image";
 import { toast } from "sonner";
+import twemoji from "twemoji";
 import { useForm } from "react-hook-form";
 import { useEffect, useRef, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -255,7 +256,13 @@ export const CalculateProgressForm = ({
                     <SelectContent>
                       {languageOptions.map((language, index) => (
                         <SelectItem key={index} value={language.value}>
-                          {`${language.icon} ${language.label}`}
+                          <span
+                            className="size-5"
+                            dangerouslySetInnerHTML={{
+                              __html: twemoji.parse(language.icon),
+                            }}
+                          />
+                          {`${language.label}`}
                         </SelectItem>
                       ))}
                     </SelectContent>
