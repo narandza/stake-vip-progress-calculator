@@ -13,6 +13,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Stake VIP Progress Calculator",
   description: "Calculate your VIP progress",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({
