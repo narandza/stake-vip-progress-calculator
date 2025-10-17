@@ -35,14 +35,13 @@ import {
   DEFAULT_ICON_WIDTH,
   STORAGE_KEYS,
 } from "@/modules/constants/constants";
+import { logEvent } from "@/lib/logEvent";
 import { writeMessage } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { calculateProgress } from "@/lib/calculate";
 import { TierEnum, VipTier } from "@/modules/constants/vipTiers";
-
-import { WagerResultCard } from "./wager-result-card";
-import { logEvent } from "@/lib/logEvent";
+import { WagerResultCard } from "@/modules/home/ui/components/wager-result-card";
 
 const formSchema = z.object({
   currentPercentage: z.coerce
