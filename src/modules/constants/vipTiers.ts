@@ -83,9 +83,29 @@ export const VIP_TIERS: VipTier[] = [
     icon: "diamond-5.svg",
   },
   {
-    name: "Obsidian",
+    name: "Obsidian I",
     requirement: 1_000_000_000,
-    icon: "obsidian.svg",
+    icon: "obsidian-1.svg",
+  },
+  {
+    name: "Obsidian II",
+    requirement: 2_500_000_000,
+    icon: "obsidian-2.svg",
+  },
+  {
+    name: "Opal I",
+    requirement: 5_000_000_000,
+    icon: "opal-1.svg",
+  },
+  {
+    name: "Opal II",
+    requirement: 10_000_000_000,
+    icon: "opal-2.svg",
+  },
+  {
+    name: "Plutonium",
+    requirement: 25_000_000_000,
+    icon: "opal-2.svg",
   },
 ];
 
