@@ -213,24 +213,29 @@ export const CalculateProgressForm = ({
                       <SelectValue placeholder="Select your current VIP rank" />
                     </SelectTrigger>
                     <SelectContent>
-                      {tiers.map((tier) => (
-                        <SelectItem
-                          key={tier.name}
-                          value={tier.name}
-                          className="capitalize"
-                        >
-                          <div className="flex items-center justify-center gap-x-2 text-md">
-                            <Image
-                              alt="icon"
-                              src={`/icons/${tier.icon}`}
-                              width={DEFAULT_ICON_WIDTH}
-                              height={DEFAULT_ICON_HEIGHT}
-                              className="size-4"
-                            />
-                            {tier.name}
-                          </div>
-                        </SelectItem>
-                      ))}
+                      {tiers.map((tier) => {
+                        if (tier.name === "Plutonium") {
+                          return null;
+                        }
+                        return (
+                          <SelectItem
+                            key={tier.name}
+                            value={tier.name}
+                            className="capitalize"
+                          >
+                            <div className="flex items-center justify-center gap-x-2 text-md">
+                              <Image
+                                alt="icon"
+                                src={`/icons/${tier.icon}`}
+                                width={DEFAULT_ICON_WIDTH}
+                                height={DEFAULT_ICON_HEIGHT}
+                                className="size-4"
+                              />
+                              {tier.name}
+                            </div>
+                          </SelectItem>
+                        );
+                      })}
                     </SelectContent>
                   </Select>
                 </FormControl>
