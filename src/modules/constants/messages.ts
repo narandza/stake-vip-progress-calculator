@@ -40,7 +40,7 @@ export const MESSAGES: MessageTemplates = {
   
   Las apuestas deportivas cuentan tres veces más para cumplir con tus requisitos de apuesta. Por ejemplo, para calcular cuántas apuestas deportivas necesitarías para llegar al siguiente nivel, solo divide la cantidad restante entre 3.<br/><br/>
   
-  Si realizas una combinación de apuestas deportivas y de casino, la mejor manera de seguir tu progreso es revisando tu historial de transacciones. También hemos preparado una guía rápida para que puedas calcularlo tú mismo en cualquier momento:<br/>
+  También hemos preparado una guía rápida para que puedas calcularlo tú mismo en cualquier momento:<br/>
   ${ARTICLE}<br/><br/>
   
   Si tienes alguna otra pregunta o quieres una actualización de tu progreso, estamos disponibles para ayudarte las 24 horas, los 7 días de la semana. Sigue así, estás muy cerca.
