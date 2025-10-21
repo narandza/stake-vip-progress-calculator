@@ -75,7 +75,6 @@ ${ARTICLE}<br/><br/>
 
   Spor bahisleri, bahis gereksinimlerinize üç kat daha fazla eklenir. Örneğin, bir sonraki seviyeye geçmek için kaç spor bahsi yapmanız gerektiğini hesaplamak için kalan tutarı 3'e bölmeniz yeterlidir.<br/><br/>
 
-  Spor ve casino bahislerini bir arada oynuyorsanız, ilerlemenizi takip etmenin en iyi yolu işlem geçmişinizi incelemektir.<br/>
   Ayrıca, istediğiniz zaman bunu kendiniz hesaplayabilmeniz için hızlı bir rehber hazırladık:<br/>
   ${ARTICLE}<br/><br/>
 
