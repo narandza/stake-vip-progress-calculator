@@ -22,7 +22,7 @@ export const MESSAGES: MessageTemplates = {
   To move from ${tier} to ${nextTier}, you’ll need to wager a total of ${tierGap}, meaning there's ${remainingToNextTier} left to go.<br/><br/>
   Sports bets count three times more toward your wagering requirements. For example, to work out how many sports bets would get you to the next level, just divide the remaining amount by 3.<br/><br/>
 
-  If you’re placing a mix of sports and casino bets, the best way to keep track of your progress is through your transaction history. We’ve also prepared a quick guide so you can calculate it yourself anytime:<br/>
+  We’ve also prepared a quick guide so you can calculate it yourself anytime:<br/>
   ${ARTICLE}<br/><br/>
 
 
