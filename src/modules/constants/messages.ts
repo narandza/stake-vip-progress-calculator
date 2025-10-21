@@ -83,14 +83,12 @@ ${ARTICLE}<br/><br/>
   `,
 
   // French translation
-  fr: ({ nextTier, tierGap, currentPercentage, remainingToNextTier }) => `
-Merci pour votre patience.<br/><br/>
+  fr: ({ tier, nextTier, tierGap, currentPercentage, remainingToNextTier }) => `
+  Merci pour votre patience.<br/><br/>
 
-D'après ce que je vois, vous avez atteint ${currentPercentage}% vers le rang VIP ${nextTier}. Pour atteindre le niveau ${nextTier}, vous devriez parier un total de ${tierGap}, ce qui veut dire qu'il reste encore ${remainingToNextTier} à parier.<br/><br/>
+D'après ce que je vois, vous avez atteint ${currentPercentage}% vers le rang VIP ${nextTier}. Pour bouger de ${tier} à ${nextTier}, vous devriez parier un total de ${tierGap}, ce qui veut dire qu'il reste encore ${remainingToNextTier} à parier.<br/><br/>
 
 Les paris sportifs comptent pour trois fois plus pour l'exigence de mise. Par exemple, pour voir combien de paris sportifs vous permettraient d'arriver au prochain rang VIP, il suffit de diviser le montant restant par 3.<br/><br/>
-
-Si vous faites un mélange de paris sportifs et de paris casino, la meilleure façon de suivre le progrès est à travers l'historique des transactions.<br/><br/>
 
 Nous avons aussi préparé un guide rapide, ainsi vous pouvez calculer le progrès à tout moment :<br/>
 ${ARTICLE}<br/><br/>
