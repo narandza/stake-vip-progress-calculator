@@ -30,9 +30,7 @@ export const MESSAGES: MessageTemplates = {
 
   // Spanish translation
   es: ({ tier, nextTier, tierGap, currentPercentage, remainingToNextTier }) =>
-    `
-  Gracias por tu paciencia.<br/><br/>
-  
+    `  
   Por lo que veo, actualmente llevas un ${currentPercentage}% de progreso hacia tu nivel VIP ${nextTier}.<br/><br/>
   
   Para pasar de ${tier} a ${nextTier}, necesitas apostar un total de ${tierGap}, lo que significa que aún te faltan ${remainingToNextTier} para alcanzarlo.<br/><br/>
@@ -49,8 +47,6 @@ export const MESSAGES: MessageTemplates = {
 
   ar: ({ tier, nextTier, tierGap, currentPercentage, remainingToNextTier }) =>
     `
-شكراً لصبرك.<br/><br/>
-
 حسب ما أرى، أنت حالياً على <strong>${currentPercentage}%</strong> من الطريق نحو مستوى كبار الشخصيات ${nextTier}.<br/><br/>
 
 للانتقال من ${tier} إلى ${nextTier}، ستحتاج إلى المراهنة بمبلغ إجمالي قدره ${tierGap}، أي أن هناك ${remainingToNextTier} متبقي.<br/><br/>
@@ -67,8 +63,6 @@ ${ARTICLE}<br/><br/>
   // Turkish translation
   tr: ({ tier, nextTier, tierGap, currentPercentage, remainingToNextTier }) =>
     `
-  Beklediğiniz için teşekkürler.<br/><br/>
-
   Gördüğümüz kadarıyla şu anda <strong>${currentPercentage}%</strong> oranında <strong>${nextTier}</strong> VIP seviyenize yaklaştınız.<br/><br/>
 
   <strong>${tier}</strong> seviyesinden <strong>${nextTier}</strong> seviyesine geçmek için toplam <strong>${tierGap}</strong> çevrim yapmanız gerekmektedir, yani <strong>${remainingToNextTier}</strong> daha kalmıştır.<br/><br/>
@@ -83,11 +77,9 @@ ${ARTICLE}<br/><br/>
 
   // French translation
   fr: ({ tier, nextTier, tierGap, currentPercentage, remainingToNextTier }) => `
-  Merci pour votre patience.<br/><br/>
-
 D'après ce que je vois, vous avez atteint ${currentPercentage}% vers le rang VIP ${nextTier}. Pour bouger de ${tier} à ${nextTier}, vous devriez parier un total de ${tierGap}, ce qui veut dire qu'il reste encore ${remainingToNextTier} à parier.<br/><br/>
 
-Les paris sportifs comptent pour trois fois plus pour l'exigence de mise. Par exemple, pour voir combien de paris sportifs vous permettraient d'arriver au prochain rang Les paris sportifs comptent trois fois plus dans votre progression VIP, tandis que les jeux Stake Originals comptent double. Par exemple, pour calculer le montant de mise nécessaire pour atteindre le niveau suivant en utilisant des paris sportifs, il suffit de diviser le montant restant par 3. Si vous jouez aux jeux Stake Originals, divisez le montant restant par 2.<br/><br/>
+Les paris sportifs comptent trois fois plus dans votre progression VIP, tandis que les jeux Stake Originals comptent double. Par exemple, pour calculer le montant de mise nécessaire pour atteindre le niveau suivant en utilisant des paris sportifs, il suffit de diviser le montant restant par 3. Si vous jouez aux jeux Stake Originals, divisez le montant restant par 2.<br/><br/>
 
 Nous avons aussi préparé un guide rapide, ainsi vous pouvez calculer le progrès à tout moment :<br/>
 ${ARTICLE}<br/><br/>
