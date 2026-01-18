@@ -15,12 +15,11 @@ type MessageTemplates = Record<LanguageType, (params: MessageParams) => string>;
 export const MESSAGES: MessageTemplates = {
   en: ({ tier, nextTier, tierGap, currentPercentage, remainingToNextTier }) =>
     `
-  Thank you for your patience.<br/><br/>
-
   From what I can see, you’re currently ${currentPercentage}% of the way toward your ${nextTier} VIP level.<br/><br/>
 
   To move from ${tier} to ${nextTier}, you’ll need to wager a total of ${tierGap}, meaning there's ${remainingToNextTier} left to go.<br/><br/>
-  Sports bets count three times more toward your wagering requirements. For example, to work out how many sports bets would get you to the next level, just divide the remaining amount by 3.<br/><br/>
+
+ Sports bets count three times more toward your VIP progression, while Stake Originals games count twice as much. For example, to calculate how much wagering is needed to reach the next level using sports bets, simply divide the remaining amount by 3. If you’re playing Stake Originals games, divide the remaining amount by 2.<br/><br/>
 
   We’ve also prepared a quick guide so you can calculate it yourself anytime:<br/>
   ${ARTICLE}<br/><br/>
@@ -38,7 +37,7 @@ export const MESSAGES: MessageTemplates = {
   
   Para pasar de ${tier} a ${nextTier}, necesitas apostar un total de ${tierGap}, lo que significa que aún te faltan ${remainingToNextTier} para alcanzarlo.<br/><br/>
   
-  Las apuestas deportivas cuentan tres veces más para cumplir con tus requisitos de apuesta. Por ejemplo, para calcular cuántas apuestas deportivas necesitarías para llegar al siguiente nivel, solo divide la cantidad restante entre 3.<br/><br/>
+  Las apuestas deportivas cuentan tres veces más para tu progreso VIP, mientras que los juegos Stake Originals cuentan el doble. Por ejemplo, para calcular cuánto necesitas apostar para alcanzar el siguiente nivel usando apuestas deportivas, simplemente divide la cantidad restante entre 3. Si estás jugando juegos Stake Originals, divide la cantidad restante entre 2.<br/><br/>
   
   También hemos preparado una guía rápida para que puedas calcularlo tú mismo en cualquier momento:<br/>
   ${ARTICLE}<br/><br/>
@@ -56,7 +55,7 @@ export const MESSAGES: MessageTemplates = {
 
 للانتقال من ${tier} إلى ${nextTier}، ستحتاج إلى المراهنة بمبلغ إجمالي قدره ${tierGap}، أي أن هناك ${remainingToNextTier} متبقي.<br/><br/>
 
-تُحتسب الرهانات الرياضية ثلاثة أضعاف متطلبات المراهنة الخاصة بك. على سبيل المثال، لحساب عدد الرهانات الرياضية التي ستنقلك إلى المستوى التالي، ببساطة اقسم المبلغ المتبقي على 3.<br/><br/>
+تُحتسب الرهانات الرياضية بثلاثة أضعاف ضمن تقدمك في برنامج كبار الشخصيات، بينما تُحتسب ألعاب Stake Originals بضعفين. على سبيل المثال، لحساب مقدار المراهنة المطلوب للوصول إلى المستوى التالي باستخدام الرهانات الرياضية، ما عليك سوى قسمة المبلغ المتبقي على 3. وإذا كنت تلعب ألعاب Stake Originals، فقسّم المبلغ المتبقي على 2.<br/><br/>
 
 كما أعددنا دليلاً سريعاً لتتمكن من حسابه بنفسك في أي وقت:<br/>
 ${ARTICLE}<br/><br/>
@@ -74,7 +73,7 @@ ${ARTICLE}<br/><br/>
 
   <strong>${tier}</strong> seviyesinden <strong>${nextTier}</strong> seviyesine geçmek için toplam <strong>${tierGap}</strong> çevrim yapmanız gerekmektedir, yani <strong>${remainingToNextTier}</strong> daha kalmıştır.<br/><br/>
 
-  Spor bahisleri, bahis gereksinimlerinize üç kat daha fazla eklenir. Örneğin, bir sonraki seviyeye geçmek için kaç spor bahsi yapmanız gerektiğini hesaplamak için kalan tutarı 3'e bölmeniz yeterlidir.<br/><br/>
+  Spor bahisleri VIP ilerlemenize üç kat katkı sağlarken, Stake Originals oyunları iki kat sayılır. Örneğin, spor bahisleri kullanarak bir sonraki seviyeye ulaşmak için gereken bahis miktarını hesaplamak için kalan tutarı 3’e bölmeniz yeterlidir. Stake Originals oyunları oynuyorsanız, kalan tutarı 2’ye bölün.<br/><br/>
 
   Ayrıca, istediğiniz zaman bunu kendiniz hesaplayabilmeniz için hızlı bir rehber hazırladık:<br/>
   ${ARTICLE}<br/><br/>
@@ -88,7 +87,7 @@ ${ARTICLE}<br/><br/>
 
 D'après ce que je vois, vous avez atteint ${currentPercentage}% vers le rang VIP ${nextTier}. Pour bouger de ${tier} à ${nextTier}, vous devriez parier un total de ${tierGap}, ce qui veut dire qu'il reste encore ${remainingToNextTier} à parier.<br/><br/>
 
-Les paris sportifs comptent pour trois fois plus pour l'exigence de mise. Par exemple, pour voir combien de paris sportifs vous permettraient d'arriver au prochain rang VIP, il suffit de diviser le montant restant par 3.<br/><br/>
+Les paris sportifs comptent pour trois fois plus pour l'exigence de mise. Par exemple, pour voir combien de paris sportifs vous permettraient d'arriver au prochain rang Les paris sportifs comptent trois fois plus dans votre progression VIP, tandis que les jeux Stake Originals comptent double. Par exemple, pour calculer le montant de mise nécessaire pour atteindre le niveau suivant en utilisant des paris sportifs, il suffit de diviser le montant restant par 3. Si vous jouez aux jeux Stake Originals, divisez le montant restant par 2.<br/><br/>
 
 Nous avons aussi préparé un guide rapide, ainsi vous pouvez calculer le progrès à tout moment :<br/>
 ${ARTICLE}<br/><br/>
